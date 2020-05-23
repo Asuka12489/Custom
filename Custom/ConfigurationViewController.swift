@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  ConfigurationViewController.swift
 //  Custom
 //
 //  Created by 竹村明日香 on 2020/05/23.
@@ -8,10 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
-    
-    @IBOutlet var regiTextField: UITextField!
-    
+class ConfigurationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
