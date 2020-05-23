@@ -15,6 +15,9 @@
 		17067D5E24782C0F0087DDAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17067D5C24782C0F0087DDAB /* LaunchScreen.storyboard */; };
 		17067D6924782C100087DDAB /* CustomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067D6824782C100087DDAB /* CustomTests.swift */; };
 		17067D7424782C100087DDAB /* CustomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067D7324782C100087DDAB /* CustomUITests.swift */; };
+		17067DBE2478F8C90087DDAB /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DBD2478F8C90087DDAB /* TargetViewController.swift */; };
+		17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DBF2478F91E0087DDAB /* RegisterViewController.swift */; };
+		17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DC12478F9430087DDAB /* RemindViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		17067D6F24782C100087DDAB /* CustomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17067D7324782C100087DDAB /* CustomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITests.swift; sourceTree = "<group>"; };
 		17067D7524782C100087DDAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17067DBD2478F8C90087DDAB /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
+		17067DBF2478F91E0087DDAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		17067DC12478F9430087DDAB /* RemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				17067D5A24782C0F0087DDAB /* Assets.xcassets */,
 				17067D5C24782C0F0087DDAB /* LaunchScreen.storyboard */,
 				17067D5F24782C0F0087DDAB /* Info.plist */,
+				17067DBD2478F8C90087DDAB /* TargetViewController.swift */,
+				17067DBF2478F91E0087DDAB /* RegisterViewController.swift */,
+				17067DC12478F9430087DDAB /* RemindViewController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -260,8 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				17067D5624782C0E0087DDAB /* ViewController.swift in Sources */,
+				17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */,
+				17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */,
 				17067D5224782C0E0087DDAB /* AppDelegate.swift in Sources */,
 				17067D5424782C0E0087DDAB /* SceneDelegate.swift in Sources */,
+				17067DBE2478F8C90087DDAB /* TargetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
