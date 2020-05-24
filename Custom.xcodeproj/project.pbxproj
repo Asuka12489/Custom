@@ -21,7 +21,8 @@
 		17067DDF24790D940087DDAB /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DDE24790D940087DDAB /* Register.swift */; };
 		17067DE224790E700087DDAB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE124790E700087DDAB /* Realm */; };
 		17067DE424790E700087DDAB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE324790E700087DDAB /* RealmSwift */; };
-		17067DE6247911B30087DDAB /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DE5247911B30087DDAB /* ConfigurationViewController.swift */; };
+		17067DEB247A69B60087DDAB /* ConfigurationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */; };
+		17067DEF247AC04E0087DDAB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DEE247AC04E0087DDAB /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,8 @@
 		17067DBF2478F91E0087DDAB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		17067DC12478F9430087DDAB /* RemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewController.swift; sourceTree = "<group>"; };
 		17067DDE24790D940087DDAB /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		17067DE5247911B30087DDAB /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewController.swift; sourceTree = "<group>"; };
+		17067DEE247AC04E0087DDAB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,9 @@
 				17067DBD2478F8C90087DDAB /* TargetViewController.swift */,
 				17067DBF2478F91E0087DDAB /* RegisterViewController.swift */,
 				17067DC12478F9430087DDAB /* RemindViewController.swift */,
-				17067DE5247911B30087DDAB /* ConfigurationViewController.swift */,
 				17067DDE24790D940087DDAB /* Register.swift */,
+				17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */,
+				17067DEE247AC04E0087DDAB /* FirstViewController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -285,9 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17067DEF247AC04E0087DDAB /* FirstViewController.swift in Sources */,
 				17067D5624782C0E0087DDAB /* ViewController.swift in Sources */,
-				17067DE6247911B30087DDAB /* ConfigurationViewController.swift in Sources */,
 				17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */,
+				17067DEB247A69B60087DDAB /* ConfigurationTableViewController.swift in Sources */,
 				17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */,
 				17067D5224782C0E0087DDAB /* AppDelegate.swift in Sources */,
 				17067DDF24790D940087DDAB /* Register.swift in Sources */,
@@ -471,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.assan.takemura.Custom;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Custom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.assan.takemura.Custom;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Custom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

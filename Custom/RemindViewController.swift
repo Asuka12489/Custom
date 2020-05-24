@@ -9,6 +9,8 @@
 import UIKit
 
 class RemindViewController: UIViewController {
+    
+    @IBOutlet var remiPick: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +18,10 @@ class RemindViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func remi(){
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -1,16 +1,14 @@
 //
-//  RegisterViewController.swift
+//  irstViewController.swift
 //  Custom
 //
-//  Created by 竹村明日香 on 2020/05/23.
+//  Created by 竹村明日香 on 2020/05/24.
 //  Copyright © 2020 Takemura assan. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
-    
-    @IBOutlet var regiTextField: UITextField!
+class irstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +16,6 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func regi(){
-        
-    }
 
     /*
     // MARK: - Navigation

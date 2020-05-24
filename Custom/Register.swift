@@ -11,5 +11,7 @@ import RealmSwift
 
 class register: Object{
     @objc dynamic var regi: String = ""
+    @objc dynamic var rimi: String = ""
+//    @objc dynamic var days: Data =
 }
 
