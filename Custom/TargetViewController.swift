@@ -18,11 +18,17 @@ class TargetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func tage(){
-        
+        let newRegister = Register()
+        newRegister.tage = tageTextField.text!
+
+        try! realm.write{
+            realm.add(newRegister)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

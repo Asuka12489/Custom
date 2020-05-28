@@ -23,6 +23,7 @@
 		17067DE424790E700087DDAB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE324790E700087DDAB /* RealmSwift */; };
 		17067DEB247A69B60087DDAB /* ConfigurationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */; };
 		17067DEF247AC04E0087DDAB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DEE247AC04E0087DDAB /* FirstViewController.swift */; };
+		17067DF1247D4A7D0087DDAB /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		17067DDE24790D940087DDAB /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewController.swift; sourceTree = "<group>"; };
 		17067DEE247AC04E0087DDAB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,12 +124,13 @@
 				17067D5A24782C0F0087DDAB /* Assets.xcassets */,
 				17067D5C24782C0F0087DDAB /* LaunchScreen.storyboard */,
 				17067D5F24782C0F0087DDAB /* Info.plist */,
-				17067DBD2478F8C90087DDAB /* TargetViewController.swift */,
 				17067DBF2478F91E0087DDAB /* RegisterViewController.swift */,
+				17067DBD2478F8C90087DDAB /* TargetViewController.swift */,
 				17067DC12478F9430087DDAB /* RemindViewController.swift */,
-				17067DDE24790D940087DDAB /* Register.swift */,
 				17067DEA247A69B60087DDAB /* ConfigurationTableViewController.swift */,
 				17067DEE247AC04E0087DDAB /* FirstViewController.swift */,
+				17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */,
+				17067DDE24790D940087DDAB /* Register.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */,
 				17067DEB247A69B60087DDAB /* ConfigurationTableViewController.swift in Sources */,
 				17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */,
+				17067DF1247D4A7D0087DDAB /* AddTableViewCell.swift in Sources */,
 				17067D5224782C0E0087DDAB /* AppDelegate.swift in Sources */,
 				17067DDF24790D940087DDAB /* Register.swift in Sources */,
 				17067D5424782C0E0087DDAB /* SceneDelegate.swift in Sources */,
