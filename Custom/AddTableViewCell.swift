@@ -10,6 +10,6 @@ import UIKit
 
 class AddTableViewCell: UITableViewCell {
     
-          @IBOutlet var customLabel: UILabel!
+    @IBOutlet var customLabel: UILabel!
     
 }

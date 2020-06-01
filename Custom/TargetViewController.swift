@@ -36,6 +36,7 @@ class TargetViewController: UIViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         performSegue(withIdentifier: "ViewController", sender: nil)
+        
     }
     
     

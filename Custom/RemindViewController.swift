@@ -23,7 +23,7 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         dp.datePickerMode = UIDatePicker.Mode.dateAndTime
         dp.timeZone = NSTimeZone.local
         dp.locale = Locale.current
-        dp.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+        dp.addTarget(self, action: #selector(done), for: .valueChanged)
         return dp
     }()
     
@@ -36,7 +36,7 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dateChange))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         toolbar.setItems([spacelItem, doneItem], animated: true)
         
         remiTextField.inputView = datePicker
@@ -47,9 +47,10 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    @objc func dateChange(){
+    @objc func done(){
+        remiTextField.endEditing(true)
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd hh:mm"
+        formatter.dateFormat = "MM月dd日 hh:mm"
         remiTextField.text = "\(formatter.string(from: datePicker.date))"
         
     }
@@ -68,6 +69,11 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         try! realm.write{
             realm.add(newRegister)
         }
+        
+        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+
+        self.present(firstViewController, animated: true, completion: nil)
+        
         
     }
     
