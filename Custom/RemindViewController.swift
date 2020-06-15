@@ -63,7 +63,18 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func remi(){
-       
+        
+        
+        if remiTextField.text == ""{
+            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "選択されていません", message: "リマインド必要でしょ！", preferredStyle: .alert)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.present(alert, animated: true, completion:nil)
+        }else{
+            navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        }
         
         UserDefaults.standard.integer(forKey: "tagezyouhou")
         
@@ -76,11 +87,10 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
             realm.add(newRegister)
         }
         
-        navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
         
-//        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
-//
-//        self.present(firstViewController, animated: true, completion: nil)
+        //        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+        //
+        //        self.present(firstViewController, animated: true, completion: nil)
         
         
     }

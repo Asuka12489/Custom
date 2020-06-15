@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
     
     @IBOutlet var tableView: UITableView!
     
@@ -20,6 +20,25 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+                if error != nil {
+                    return
+                }
+                if granted {
+                    print("通知許可")
+                    let center = UNUserNotificationCenter.current()
+                    center.delegate = self
+                } else {
+                    print("通知拒否")
+                }
+            })
+        } else {
+            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,8 +56,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AddTableViewCell
         cell.customLabel.text = register[indexPath.row].regi
-        cell.backgroundColor = #colorLiteral(red: 1, green: 0.9647058824, blue: 0.8196078431, alpha: 1)
-        tableView.backgroundColor = #colorLiteral(red: 1, green: 0.9647058824, blue: 0.8196078431, alpha: 1)
         return cell
     }
     
@@ -51,9 +68,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let second = storyboard.instantiateViewController(withIdentifier: "second")
         
         self.present(second, animated: true, completion: nil)
-    
-       }
-    
+    }
     
     /*
      // MARK: - Navigation

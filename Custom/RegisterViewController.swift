@@ -13,7 +13,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet var regiTextField: UITextField!
     var regizyo = String()
-
+    
     
     let realm = try! Realm()
     let register = try! Realm().objects(Register.self)
@@ -27,17 +27,24 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func regi(){
+        
+        if regiTextField.text == ""{
+            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "何も入力されていません", message: "習慣を入力してください！！", preferredStyle: .alert)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.present(alert, animated: true, completion:nil)
+        }else{
+            self.performSegue(withIdentifier: "TargetViewController", sender: nil)
+        }
+        
         regizyo.append(regiTextField.text!)
         UserDefaults.standard.set( regizyo, forKey: "regizyouhou" )
-
-        //        let newRegister = Register()
-        //        newRegister.regi = regiTextField.text!
-        //
-        //        try! realm.write{
-        //            realm.add(newRegister)
-        //        }
         
     }
+    
+    
     
     /*
      // MARK: - Navigation

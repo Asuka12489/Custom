@@ -179,7 +179,6 @@
                                 </state>
                                 <connections>
                                     <action selector="regi" destination="HLi-GC-LlZ" eventType="touchUpInside" id="Taa-cC-zky"/>
-                                    <segue destination="JQe-O4-jM5" kind="show" id="HTo-rN-Uan"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,6 +188,7 @@
                     <navigationItem key="navigationItem" id="s5G-Vc-xLk"/>
                     <connections>
                         <outlet property="regiTextField" destination="6Po-uE-GLh" id="hEb-JL-Iha"/>
+                        <segue destination="JQe-O4-jM5" kind="show" identifier="TargetViewController" id="VQW-wD-SA0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVx-ca-bF8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,7 +226,6 @@
                                 </state>
                                 <connections>
                                     <action selector="tage" destination="JQe-O4-jM5" eventType="touchUpInside" id="cua-ro-uzH"/>
-                                    <segue destination="OQe-Fy-5it" kind="show" id="8Mh-k9-BVE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,6 +235,7 @@
                     <navigationItem key="navigationItem" id="rW3-x0-6Wd"/>
                     <connections>
                         <outlet property="tageTextField" destination="1Zf-18-oup" id="kPP-4M-dD2"/>
+                        <segue destination="OQe-Fy-5it" kind="show" identifier="RemindViewController" id="ESP-gF-JBK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IR3-qP-Azu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

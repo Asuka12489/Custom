@@ -25,15 +25,20 @@ class TargetViewController: UIViewController {
     }
     
     @IBAction func tage(){
+        
+        if tageTextField.text == ""{
+            self.dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: "何も入力されていません", message: "目標を立てよう！", preferredStyle: .alert)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.present(alert, animated: true, completion:nil)
+        }else{
+            self.performSegue(withIdentifier: "RemindViewController", sender: nil)
+        }
+        
         tagezyo.append(tageTextField.text!)
         UserDefaults.standard.set( tagezyo, forKey: "tagezyouhou" )
-        
-        //        let newRegister = Register()
-        //        newRegister.tage = tageTextField.text!
-        //
-        //        try! realm.write{
-        //            realm.add(newRegister)
-        //        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
