@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         notificationToken = register.observe { [weak self] _ in self?.tableView.reloadData()
+            
         }
         // Do any additional setup after loading the view.
     }
@@ -37,7 +38,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var memoTextField = UITextField()
         let ac = UIAlertController(title: "記録しよう！", message: "", preferredStyle: .alert)
         let aa = UIAlertAction(title: "OK", style: .default) { (action) in
-            print(memoTextField.text!)
+            let newRegister = Register()
+            newRegister.seco = memoTextField.text!
+            
+            try! self.realm.write(){
+                self.realm.add(newRegister)
+            }
         }
         
         ac.addTextField { (textField) in
@@ -48,15 +54,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(ac, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        let newRegister = Register()
+        try! self.realm.write() {
+            self.realm.delete(newRegister)
+        }
+        //スワイプ削除
+        let deleteAction = UIContextualAction(style: .destructive, title:"delete") {
+            (ctxAction, view, completionHandler) in
+            //            self..remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        
+        let trashImage = UIImage(systemName: "trash.png")?.withTintColor(UIColor.white , renderingMode: .alwaysTemplate)
+        deleteAction.image = trashImage
+        deleteAction.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return register.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SecondTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! SecondTableViewCell
         cell.kiroLabel.text = register[indexPath.row].seco
-        
         return cell
     }
     
@@ -72,6 +96,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    
 }
-

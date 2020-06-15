@@ -63,16 +63,24 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func remi(){
+       
+        
+        UserDefaults.standard.integer(forKey: "tagezyouhou")
+        
         let newRegister = Register()
         newRegister.remi = remiTextField.text!
+        newRegister.regi =  UserDefaults.standard.string(forKey: "regizyouhou")!
+        newRegister.tage =  UserDefaults.standard.string(forKey: "tagezyouhou")!
         
         try! realm.write{
             realm.add(newRegister)
         }
         
-        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
-
-        self.present(firstViewController, animated: true, completion: nil)
+        navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        
+//        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+//
+//        self.present(firstViewController, animated: true, completion: nil)
         
         
     }

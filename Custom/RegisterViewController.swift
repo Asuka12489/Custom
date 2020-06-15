@@ -12,6 +12,8 @@ import RealmSwift
 class RegisterViewController: UIViewController {
     
     @IBOutlet var regiTextField: UITextField!
+    var regizyo = String()
+
     
     let realm = try! Realm()
     let register = try! Realm().objects(Register.self)
@@ -25,12 +27,16 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func regi(){
-        let newRegister = Register()
-        newRegister.regi = regiTextField.text!
+        regizyo.append(regiTextField.text!)
+        UserDefaults.standard.set( regizyo, forKey: "regizyouhou" )
+
+        //        let newRegister = Register()
+        //        newRegister.regi = regiTextField.text!
+        //
+        //        try! realm.write{
+        //            realm.add(newRegister)
+        //        }
         
-        try! realm.write{
-            realm.add(newRegister)
-        }
     }
     
     /*
