@@ -19,12 +19,13 @@
 		17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DBF2478F91E0087DDAB /* RegisterViewController.swift */; };
 		17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DC12478F9430087DDAB /* RemindViewController.swift */; };
 		17067DDF24790D940087DDAB /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DDE24790D940087DDAB /* Register.swift */; };
-		17067DE224790E700087DDAB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE124790E700087DDAB /* SwiftPackageProductDependency */; };
-		17067DE424790E700087DDAB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE324790E700087DDAB /* SwiftPackageProductDependency */; };
+		17067DE224790E700087DDAB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE124790E700087DDAB /* Realm */; };
+		17067DE424790E700087DDAB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 17067DE324790E700087DDAB /* RealmSwift */; };
 		17067DEF247AC04E0087DDAB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DEE247AC04E0087DDAB /* FirstViewController.swift */; };
 		17067DF1247D4A7D0087DDAB /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */; };
 		17067DF82484E95B0087DDAB /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17067DF72484E95B0087DDAB /* SecondTableViewCell.swift */; };
 		17DF4212249239BE0066A942 /* JKG-M_3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17DF4211249239BE0066A942 /* JKG-M_3.ttf */; };
+		17DF421A249AC69E0066A942 /* KirokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DF4219249AC69E0066A942 /* KirokuViewController.swift */; };
 		9CE5E349D07485181031D149 /* Pods_CustomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFD317C77547042990B6DE6 /* Pods_CustomTests.framework */; };
 		A35BF07B85198E65A1DF1153 /* Pods_Custom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A82E1A686FD01B2FB4873 /* Pods_Custom.framework */; };
 		A8D676291759E0E4B34AB07F /* Pods_Custom_CustomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A40602DC14EF332269F8B16 /* Pods_Custom_CustomUITests.framework */; };
@@ -72,6 +73,7 @@
 		17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		17067DF72484E95B0087DDAB /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		17DF4211249239BE0066A942 /* JKG-M_3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JKG-M_3.ttf"; sourceTree = "<group>"; };
+		17DF4219249AC69E0066A942 /* KirokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = "<group>"; };
 		36C2AC46B2AB4C548B43B7D2 /* Pods-CustomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomTests.release.xcconfig"; path = "Target Support Files/Pods-CustomTests/Pods-CustomTests.release.xcconfig"; sourceTree = "<group>"; };
 		3CFD317C77547042990B6DE6 /* Pods_CustomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40602DC14EF332269F8B16 /* Pods_Custom_CustomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Custom_CustomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,8 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17067DE424790E700087DDAB /* BuildFile in Frameworks */,
-				17067DE224790E700087DDAB /* BuildFile in Frameworks */,
+				17067DE424790E700087DDAB /* RealmSwift in Frameworks */,
+				17067DE224790E700087DDAB /* Realm in Frameworks */,
 				A35BF07B85198E65A1DF1153 /* Pods_Custom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,10 +149,11 @@
 				17067DBF2478F91E0087DDAB /* RegisterViewController.swift */,
 				17067DBD2478F8C90087DDAB /* TargetViewController.swift */,
 				17067DC12478F9430087DDAB /* RemindViewController.swift */,
-				17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */,
 				17067D5524782C0E0087DDAB /* ViewController.swift */,
 				17067DF72484E95B0087DDAB /* SecondTableViewCell.swift */,
 				17067DDE24790D940087DDAB /* Register.swift */,
+				17067DF0247D4A7D0087DDAB /* AddTableViewCell.swift */,
+				17DF4219249AC69E0066A942 /* KirokuViewController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -201,7 +204,6 @@
 				5ED171809C2C24FD45CE12E1 /* Pods-CustomTests.debug.xcconfig */,
 				36C2AC46B2AB4C548B43B7D2 /* Pods-CustomTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,8 +226,8 @@
 			);
 			name = Custom;
 			packageProductDependencies = (
-				17067DE124790E700087DDAB /* SwiftPackageProductDependency */,
-				17067DE324790E700087DDAB /* SwiftPackageProductDependency */,
+				17067DE124790E700087DDAB /* Realm */,
+				17067DE324790E700087DDAB /* RealmSwift */,
 			);
 			productName = Custom;
 			productReference = 17067D4E24782C0E0087DDAB /* Custom.app */;
@@ -303,7 +305,7 @@
 			);
 			mainGroup = 17067D4524782C0E0087DDAB;
 			packageReferences = (
-				17067DE024790E700087DDAB /* RemoteSwiftPackageReference */,
+				17067DE024790E700087DDAB /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 17067D4F24782C0E0087DDAB /* Products */;
 			projectDirPath = "";
@@ -456,6 +458,7 @@
 				17067D5624782C0E0087DDAB /* ViewController.swift in Sources */,
 				17067DC22478F9430087DDAB /* RemindViewController.swift in Sources */,
 				17067DC02478F91E0087DDAB /* RegisterViewController.swift in Sources */,
+				17DF421A249AC69E0066A942 /* KirokuViewController.swift in Sources */,
 				17067DF1247D4A7D0087DDAB /* AddTableViewCell.swift in Sources */,
 				17067D5224782C0E0087DDAB /* AppDelegate.swift in Sources */,
 				17067DDF24790D940087DDAB /* Register.swift in Sources */,
@@ -802,7 +805,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		17067DE024790E700087DDAB /* RemoteSwiftPackageReference */ = {
+		17067DE024790E700087DDAB /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
@@ -813,14 +816,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		17067DE124790E700087DDAB /* SwiftPackageProductDependency */ = {
+		17067DE124790E700087DDAB /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 17067DE024790E700087DDAB /* RemoteSwiftPackageReference */;
+			package = 17067DE024790E700087DDAB /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
 		};
-		17067DE324790E700087DDAB /* SwiftPackageProductDependency */ = {
+		17067DE324790E700087DDAB /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 17067DE024790E700087DDAB /* RemoteSwiftPackageReference */;
+			package = 17067DE024790E700087DDAB /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

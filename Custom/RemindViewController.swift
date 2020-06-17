@@ -9,11 +9,11 @@
 import UIKit
 import RealmSwift
 
-extension Date {
-    func seconds(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
-    }
-}
+//extension Date {
+//    func seconds(from date: Date) -> Int {
+//        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+//    }
+//}
 
 class RemindViewController: UIViewController, UITextFieldDelegate {
     
@@ -58,6 +58,8 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -67,7 +69,7 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func remi(){
         
-        setNotification(date: datePicker.date)
+//        setNotification(date: datePicker.date)
         
         if remiTextField.text == ""{
             self.dismiss(animated: true, completion: nil)
@@ -95,27 +97,28 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func setNotification(date: Date) {
-        var trigger: UNNotificationTrigger
-        
-        let notificationTime = Calendar.current.dateComponents(in: TimeZone.current, from: date)
-        let now = Date()
-        let setDate = DateComponents(calendar: .current, year: notificationTime.year, month: notificationTime.month, day: notificationTime.day, hour: notificationTime.hour, minute: notificationTime.minute,second: notificationTime.second).date!
-        
-        let seconds = setDate.seconds(from: now)
-        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
-        
-        let content = UNMutableNotificationContent()
-        content.title = "記録しなくていいの？"
-        content.sound = .default
-        
-        let identifier = NSUUID().uuidString
-        
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    }
-    
+//    func setNotification(date: Date) {
+//        var trigger: UNNotificationTrigger
+//
+//        let notificationTime = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+//        let now = Date()
+//        let setDate = DateComponents(calendar: .current, year: notificationTime.year, month: notificationTime.month, day: notificationTime.day, hour: notificationTime.hour, minute: notificationTime.minute,second: notificationTime.second).date!
+//
+//        let seconds = setDate.seconds(from: now)
+//        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+//
+//        let content = UNMutableNotificationContent()
+//        content.title = "記録しなくていいの？"
+//        content.sound = .default
+//
+//        let identifier = NSUUID().uuidString
+//
+//        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+//
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//
+//    }
+//
     /*
      // MARK: - Navigation
      

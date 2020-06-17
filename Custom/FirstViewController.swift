@@ -16,6 +16,10 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var nitiLabel: UILabel!
+    
+    var Item: Results<Register>!
+    
     let realm = try! Realm()
     let register = try! Realm().objects(Register.self)
     var notificationToken: NotificationToken?
@@ -47,27 +51,24 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
         // Do any additional setup after loading the view.
         
         
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return register.count
-            }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            register.count
+        }
         
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AddTableViewCell
-                cell.customLabel.text = register[indexPath.row].regi
-                return cell
-            }
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AddTableViewCell
+            cell.customLabel.text = register[indexPath.row].regi
+            return cell
+        }
         
-            func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-                tableView.deselectRow(at: indexPath, animated: true)
-        
-                let storyboard: UIStoryboard = self.storyboard!
-        
-                let second = storyboard.instantiateViewController(withIdentifier: "second")
-        
-                self.present(second, animated: true, completion: nil)
-            }
-        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let storyboard: UIStoryboard = self.storyboard!
+            let second = storyboard.instantiateViewController(withIdentifier: "second")
+            self.present(second, animated: true, completion: nil)
+            
+        }
         
         
         /*
@@ -80,4 +81,36 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
          }
          */
     }
+    
+    @IBAction func kiroku(){
+        self.performSegue(withIdentifier: "ViewController", sender: nil)
+    }
+    
+    
 }
+
+
+//
+//     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+//         self.view.layoutIfNeeded()
+//     }
+//
+//     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+//
+//         let formatter = DateFormatter()
+//         formatter.dateFormat = "yyyy年MM月dd日"
+//         let date = formatter.string(from: date)
+//         nitiLabel.text = date
+//         let realm = try! Realm()
+//         let results = realm.objects(Register.self)
+//         for ev in results {
+//             if ev.date == date {
+//                 Item = realm.objects(Register.self)
+//                 let data = AddPlan(timeOne: ev.regi)
+//
+//             }
+//         }
+//         tableView.reloadData()
+//     }
+//
+//

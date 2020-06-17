@@ -15,5 +15,6 @@ class Register: Object{
     @objc dynamic var remi: String = ""
     
     @objc dynamic var seco: String = ""
+    @objc dynamic var kome: String = ""
 }
 

@@ -11,8 +11,6 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var registerLabel: UILabel!
-    @IBOutlet var targetLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
     let realm = try! Realm()
@@ -63,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             (ctxAction, view, completionHandler) in
             let newRegister = Register()
             try! self.realm.write() {
-                self.realm.delete(newRegister)
+                self.realm.delete(self.register[indexPath.row])
             }
             tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
