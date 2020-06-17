@@ -13,7 +13,6 @@ class Register: Object{
     @objc dynamic var regi: String = ""
     @objc dynamic var tage: String = ""
     @objc dynamic var remi: String = ""
-//    @objc dynamic var days: Data =
     
     @objc dynamic var seco: String = ""
 }

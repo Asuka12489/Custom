@@ -61,9 +61,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //スワイプ削除
         let deleteAction = UIContextualAction(style: .destructive, title:"delete") {
             (ctxAction, view, completionHandler) in
-//            try! self.realm.write() {
-//                self.realm.delete(newRegister)
-//            }
+            let newRegister = Register()
+            try! self.realm.write() {
+                self.realm.delete(newRegister)
+            }
             tableView.deleteRows(at: [indexPath], with: .automatic)
             completionHandler(true)
             

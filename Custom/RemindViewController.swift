@@ -19,8 +19,6 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var remiTextField: UITextField!
     
-    //    var datePicker: UIDatePicker = UIDatePicker()
-    
     let realm = try! Realm()
     let register = try! Realm().objects(Register.self)
     
@@ -50,7 +48,6 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         
         remiTextField.delegate = self
         
-        // Do any additional setup after loading the view.
     }
     
     @objc func done(){
@@ -93,11 +90,6 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         try! realm.write{
             realm.add(newRegister)
         }
-        
-        
-        //        let firstViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
-        //
-        //        self.present(firstViewController, animated: true, completion: nil)
         
         
     }
