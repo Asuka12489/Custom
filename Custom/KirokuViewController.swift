@@ -11,11 +11,13 @@ import RealmSwift
 
 class KirokuViewController: UIViewController, UITextFieldDelegate {
     
+    
     @IBOutlet var kiroTextField: UITextField!
     @IBOutlet var komeTextField: UITextField!
     
     let realm = try! Realm()
     let register = try! Realm().objects(Register.self)
+    
     
     let datePicker: UIDatePicker = {
         let dp = UIDatePicker()
@@ -48,7 +50,6 @@ class KirokuViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func done(){
-        kiroTextField.endEditing(true)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
         kiroTextField.text = "\(formatter.string(from: datePicker.date))"
@@ -57,20 +58,15 @@ class KirokuViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func kiroku(){
         let newRegister = Register()
-              newRegister.seco = kiroTextField.text!
-              newRegister.kome = komeTextField.text!
-              
-              try! self.realm.write(){
-                  self.realm.add(newRegister)
-              }
-              
+        newRegister.seco = kiroTextField.text!
+        newRegister.kome = komeTextField.text!
+        
+        try! self.realm.write(){
+            self.realm.add(newRegister)
+        }
+        
         navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
-    
-    
-    
-    
-    
     
     
     /*

@@ -32,25 +32,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func memoButton(_ sender: Any) {
-        var memoTextField = UITextField()
-        let ac = UIAlertController(title: "記録しよう！", message: "", preferredStyle: .alert)
-        let aa = UIAlertAction(title: "OK", style: .default) { (action) in
-            let newRegister = Register()
-            newRegister.seco = memoTextField.text!
-            
-            try! self.realm.write(){
-                self.realm.add(newRegister)
-            }
-        }
-        
-        ac.addTextField { (textField) in
-            textField.placeholder = "今日は何した？"
-            memoTextField = textField
-        }
-        ac.addAction(aa)
-        present(ac, animated: true, completion: nil)
-    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -84,14 +65,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let storyboard: UIStoryboard = self.storyboard!
-        
-        let third = storyboard.instantiateViewController(withIdentifier: "third")
-        
-        self.present(third, animated: true, completion: nil)
+        var alertController = UIAlertController()
+        alertController = UIAlertController(title: "\(register[indexPath.row].regi)" ,message: "\(register[indexPath.row].kome)",preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "頑張った！!",style: .default,handler: nil))
+        present(alertController, animated: true)
+               
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        let storyboard: UIStoryboard = self.storyboard!
+//        let third = storyboard.instantiateViewController(withIdentifier: "third")
+//        self.present(third, animated: true, completion: nil)
         
     }
     

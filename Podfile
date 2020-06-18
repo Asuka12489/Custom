@@ -4,8 +4,10 @@
 target 'Custom' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+
  pod 'RealmSwift'
  pod 'FSCalendar'
+ pod 'CalculateCalendarLogic' 
 
   # Pods for Custom
 
@@ -15,6 +17,7 @@ target 'Custom' do
   end
 
   target 'CustomUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
 
