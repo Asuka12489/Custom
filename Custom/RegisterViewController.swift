@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var regiTextField: UITextField!
     var regizyo = String()
@@ -22,7 +22,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
+        regiTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +42,11 @@ class RegisterViewController: UIViewController {
         regizyo.append(regiTextField.text!)
         UserDefaults.standard.set( regizyo, forKey: "regizyouhou" )
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        regiTextField.resignFirstResponder()
+        return true
     }
     
     

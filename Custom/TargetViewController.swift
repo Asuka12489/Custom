@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TargetViewController: UIViewController {
+class TargetViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var tageTextField: UITextField!
     var tagezyo = String()
@@ -20,7 +20,7 @@ class TargetViewController: UIViewController {
         super.viewDidLoad()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
+        tageTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +47,11 @@ class TargetViewController: UIViewController {
         
         performSegue(withIdentifier: "ViewController", sender: nil)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        tageTextField.resignFirstResponder()
+        return true
     }
     
     
