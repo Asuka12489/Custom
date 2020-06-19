@@ -13,7 +13,7 @@ import FSCalendar
 class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        register.count
+        return register.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,6 +25,7 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet var tableView: UITableView!
+    var list: Results<Register>!
     
     let realm = try! Realm()
     var register = try! Realm().objects(Register.self)
@@ -65,6 +66,8 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
             register = realm.objects(Register.self)
         } catch {
         }
+        
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             register.count
         }
@@ -77,15 +80,19 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
-            tableView.deselectRow(at: indexPath, animated: true)
-            let storyboard: UIStoryboard = self.storyboard!
-            let second = storyboard.instantiateViewController(withIdentifier: "second")
-            self.present(second, animated: true, completion: nil)
+            //            tableView.deselectRow(at: indexPath, animated: true)
+            //            let storyboard: UIStoryboard = self.storyboard!
+            //            let second = storyboard.instantiateViewController(withIdentifier: "second")
+            //            self.present(second, animated: true, completion: nil)
+            
+            var alertController = UIAlertController()
+            alertController = UIAlertController(title: "\(register[indexPath.row].tage)" ,message: "",preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "頑張る",style: .default,handler: nil))
+            present(alertController, animated: true)
             
         }
         
         self.tableView.allowsSelection = false
-        
         /*
          // MARK: - Navigation
          
@@ -102,37 +109,33 @@ class FirstViewController: UIViewController, UNUserNotificationCenterDelegate, F
         self.performSegue(withIdentifier: "ViewController", sender: nil)
     }
     
-    func getDay(_ date:Date) -> (Int,Int,Int){
-        let tmpCalendar = Calendar(identifier: .gregorian)
-        let year = tmpCalendar.component(.year, from: date)
-        let month = tmpCalendar.component(.month, from: date)
-        let day = tmpCalendar.component(.day, from: date)
-        return (year,month,day)
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
-        var list: Results<Register>!
-        do {
-            let realm = try Realm()
-            let predicate = NSPredicate(format: "%@ =< date AND date < %@", getBeginingAndEndOfDay(date).begining as CVarArg, getBeginingAndEndOfDay(date).end as CVarArg)
-            list = realm.objects(Register.self).filter(predicate)
-        } catch {
-        }
-        return list.count
-        
-        let selectDay = getDay(date)
-        
-    }
-    
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int{
-        return shouldShowEventDot
-    }
-    
-    private func getBeginingAndEndOfDay(_ date:Date) -> (begining: Date , end: Date) {
-        let begining = Calendar(identifier: .gregorian).startOfDay(for: date)
-        let end = begining + 24*60*60
-        return (begining, end)
-    }
+    //    func getDay(_ date:Date) -> (Int,Int,Int){
+    //        let tmpCalendar = Calendar(identifier: .gregorian)
+    //        let year = tmpCalendar.component(.year, from: date)
+    //        let month = tmpCalendar.component(.month, from: date)
+    //        let day = tmpCalendar.component(.day, from: date)
+    //        return (year,month,day)
+    //    }
+    //
+    //    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
+    //        do {
+    //            let realm = try Realm()
+    //            let predicate = NSPredicate(format: "%@ =< date AND date < %@", getBeginingAndEndOfDay(date).begining as CVarArg, getBeginingAndEndOfDay(date).end as CVarArg)
+    //            list = realm.objects(Register.self).filter(predicate)
+    //        } catch {
+    //        }
+    //
+    //    }
+    //
+    //    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int{
+    //        return 1
+    //    }
+    //
+    //    private func getBeginingAndEndOfDay(_ date:Date) -> (begining: Date , end: Date) {
+    //        let begining = Calendar(identifier: .gregorian).startOfDay(for: date)
+    //        let end = begining + 24*60*60
+    //        return (begining, end)
+    //    }
     
 }
 

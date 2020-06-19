@@ -8,12 +8,13 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
-//extension Date {
-//    func seconds(from date: Date) -> Int {
-//        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
-//    }
-//}
+extension Date {
+    func seconds(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+    }
+}
 
 class RemindViewController: UIViewController, UITextFieldDelegate {
     
@@ -69,8 +70,6 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func remi(){
         
-//        setNotification(date: datePicker.date)
-        
         if remiTextField.text == ""{
             self.dismiss(animated: true, completion: nil)
             let alert = UIAlertController(title: "選択されていません", message: "リマインド必要でしょ！", preferredStyle: .alert)
@@ -84,6 +83,8 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         
         UserDefaults.standard.integer(forKey: "tagezyouhou")
         
+        setNotification(date: datePicker.date)
+        
         let newRegister = Register()
         newRegister.remi = remiTextField.text!
         newRegister.regi =  UserDefaults.standard.string(forKey: "regizyouhou")!
@@ -96,29 +97,28 @@ class RemindViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func setNotification(date: Date) {
+        
+        var trigger: UNNotificationTrigger
+        let notificationTime = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+        let now = Date()
+        
+        let setDate = DateComponents(calendar: .current, year: notificationTime.year, month: notificationTime.month, day: notificationTime.day, hour: notificationTime.hour, minute: notificationTime.minute,second: notificationTime.second).date!
+        
+        let seconds = setDate.seconds(from: now)
+        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+
+        let content = UNMutableNotificationContent()
+        content.title = "今日の記録はしないの？"
+        content.body = "頑張ろうよ！"
+        content.sound = .default
+        
+        let identifier = NSUUID().uuidString
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
     
-//    func setNotification(date: Date) {
-//        var trigger: UNNotificationTrigger
-//
-//        let notificationTime = Calendar.current.dateComponents(in: TimeZone.current, from: date)
-//        let now = Date()
-//        let setDate = DateComponents(calendar: .current, year: notificationTime.year, month: notificationTime.month, day: notificationTime.day, hour: notificationTime.hour, minute: notificationTime.minute,second: notificationTime.second).date!
-//
-//        let seconds = setDate.seconds(from: now)
-//        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
-//
-//        let content = UNMutableNotificationContent()
-//        content.title = "記録しなくていいの？"
-//        content.sound = .default
-//
-//        let identifier = NSUUID().uuidString
-//
-//        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//
-//    }
-//
+    
     /*
      // MARK: - Navigation
      

@@ -16,5 +16,7 @@ class Register: Object{
     
     @objc dynamic var seco: String = ""
     @objc dynamic var kome: String = ""
+    
+    @objc dynamic var date: Date!
 }
 

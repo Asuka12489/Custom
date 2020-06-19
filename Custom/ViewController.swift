@@ -35,23 +35,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        
-        
-        //スワイプ削除
-        let deleteAction = UIContextualAction(style: .destructive, title:"delete") {
-            (ctxAction, view, completionHandler) in
-            let newRegister = Register()
-            try! self.realm.write() {
-                self.realm.delete(self.register[indexPath.row])
-            }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            completionHandler(true)
-            
-        }
-        
-        let trashImage = UIImage(systemName: "trash")?.withTintColor(UIColor.white , renderingMode: .alwaysTemplate)
-        deleteAction.image = trashImage
-        deleteAction.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
