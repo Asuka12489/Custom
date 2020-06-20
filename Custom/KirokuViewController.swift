@@ -44,6 +44,7 @@ class KirokuViewController: UIViewController, UITextFieldDelegate {
         kiroTextField.inputAccessoryView = toolbar
         
         kiroTextField.delegate = self
+        komeTextField.delegate = self
         
     
         // Do any additional setup after loading the view.
@@ -53,6 +54,7 @@ class KirokuViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
         kiroTextField.text = "\(formatter.string(from: datePicker.date))"
+        kiroTextField.endEditing(true)
         
     }
     
@@ -68,6 +70,12 @@ class KirokuViewController: UIViewController, UITextFieldDelegate {
         navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        komeTextField.resignFirstResponder()
+        return true
+    }
+
     
     /*
      // MARK: - Navigation
